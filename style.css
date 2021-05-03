@@ -1,0 +1,26 @@
+.divTable{
+	display: table;
+    float:center;
+}
+.sira {
+	display: table-row;
+}
+.hucre{
+	border: 1px solid #999999;
+	display: table-cell;
+	padding: 3px 10px;
+}
+.tbody {
+	display: table-row-group;
+}
+.Sol{
+	width: 50%;
+    float:left;
+}
+.Sag{
+    width:50%;
+    float:right;
+}
+.container{
+    width:100%;
+}
