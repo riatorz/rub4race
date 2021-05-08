@@ -1,14 +1,19 @@
-.divTable{
+.divTable1{
 	display: table;
-    float:center;
+	margin:250px;
+}
+.divTable2{
+	display: table;
+	margin-top:50px;
+	margin-left:150px;
 }
 .sira {
 	display: table-row;
 }
 .hucre{
-	border: 1px solid #999999;
+	border: 0.3em solid #999999;
 	display: table-cell;
-	padding: 3px 10px;
+	padding: 5px 10px;
 }
 .tbody {
 	display: table-row-group;
@@ -23,4 +28,9 @@
 }
 .container{
     width:100%;
+}
+.shucre{
+	border: 1px solid #999999;
+	display: table-cell;
+	padding: 3px 5px;
 }
