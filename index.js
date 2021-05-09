@@ -2,14 +2,14 @@ var fJunction = () => {
     var colors = ["red","red","red","red","green","green","green","green",
     "orange","orange","orange","orange","white","white","white","white",
     "yellow","yellow","yellow","yellow","blue","blue","blue","blue"];
-    var x = document.getElementsByClassName("hucre");
-    var hucreler = [];
+    var x = document.getElementsByClassName("cell");
+    var cells = [];
     shuffleArray(colors);
     let i,j,k;
     for(j=0;j<5;j++){
-        hucreler[j] = Array();
+        cells[j] = Array();
         for(k=0;k<5;k++)
-            hucreler[j][k] = x[k+j*5];
+            cells[j][k] = x[k+j*5];
     }
     for(i=0;i<x.length;i++){
         if (i <= 3)
@@ -25,7 +25,29 @@ var fJunction = () => {
         else if (i >=20 && i <= 24)
             x[i].style.backgroundColor = colors[i-1];
     }
-    Game(hucreler);
+    Game(cells);
+    counter();
+}
+var counter = () => {
+    var minutes = document.getElementById("minutes");
+    var second = document.getElementById("seconds");
+    var tSecond = 0;
+    var timer = setInterval(Time, 1000);
+
+    function Time() {
+    ++tSecond;
+    second.innerHTML = pad(tSecond % 60);
+    minutes.innerHTML = pad(parseInt(tSecond / 60));
+    }
+    function pad(val) {
+    var valstr = val + "";
+    if (valstr.length < 2) {
+        return "0" + valstr;
+    } else {
+        return valstr;
+    }
+    }
+    
 }
 left = 37;
 up = 38;
@@ -57,26 +79,33 @@ var Game = (array) => {
             }
         }
         var verification = () => {
-            var x = document.getElementsByClassName("shucre");
-            shucreler = [];
+            var x = document.getElementsByClassName("scells");
+            scells = [];
             for(j=0;j<3;j++){
-                shucreler[j] = Array();
+                scells[j] = Array();
                 for(k=0;k<3;k++)
-                    shucreler[j][k] = x[k+j*3];
+                    scells[j][k] = x[k+j*3];
             }
-            sayac = 0;
+            counter = 0;
             for(i =0;i<3;i++){
                 for(j=0;j<3;j++){
-                    if(shucreler[i][j].style.backgroundColor == array[i+1][j+1].style.backgroundColor){
-                        sayac++;
+                    if(scells[i][j].style.backgroundColor == array[i+1][j+1].style.backgroundColor){
+                        counter++;
                         
                     }
                 }
             }
-            console.log(sayac);
-            if(sayac==9){
-                alert("HELAL OĞLOMM");
-                
+            console.log(counter);
+            if(counter==9){
+                var totalsec = parseInt(document.getElementById("minutes").innerHTML)*60+parseInt(document.getElementById("seconds").innerHTML);
+                if(totalsec<120){
+                    alert("Well done your score is nice!"+"\n"+"Your time is: "+document.getElementById("minutes").innerHTML+" : "+document.getElementById("seconds").innerHTML);
+                }else if(totalsec>120 && totalsec<200){
+                    alert("That's nice you can do better!"+"\n"+"Your time is: "+document.getElementById("minutes").innerHTML+" : "+document.getElementById("seconds").innerHTML);
+                }else{
+                    alert("You need to imporove yourself!"+"\n"+"Your time is: "+document.getElementById("minutes").innerHTML+" : "+document.getElementById("seconds").innerHTML);
+                }
+                document.getElementById("counter").hidden = true;
             }
         }
         
@@ -132,7 +161,7 @@ let shuffleTable = () => {
     var colors = ["red","red","red","red","green","green","green","green",
     "orange","orange","orange","orange","white","white","white","white",
     "yellow","yellow","yellow","yellow","blue","blue","blue","blue"];
-    var x = document.getElementsByClassName("shucre");
+    var x = document.getElementsByClassName("scells");
     let i;
     shuffleArray(colors);
     for(i=0;i<x.length;i++){
@@ -164,7 +193,4 @@ let start = () =>{
     document.getElementById("checkbox").hidden = true;
     document.getElementById("label").hidden = true;
     document.getElementById("start").hidden = true;
-    //örüntüyü şu akdar saniyede tamamladın.
-    //saniye koy sağ dife
-
 }

@@ -7,10 +7,10 @@
 	margin-top:50px;
 	margin-left:150px;
 }
-.sira {
+.row {
 	display: table-row;
 }
-.hucre{
+.cell{
 	border: 0.3em solid #999999;
 	display: table-cell;
 	padding: 5px 10px;
@@ -18,19 +18,24 @@
 .tbody {
 	display: table-row-group;
 }
-.Sol{
+.Left{
 	width: 50%;
     float:left;
 }
-.Sag{
+.Right{
     width:50%;
     float:right;
 }
 .container{
     width:100%;
 }
-.shucre{
+.scells{
 	border: 1px solid #999999;
 	display: table-cell;
 	padding: 3px 5px;
+}
+#counter{
+	font-size:300%;
+	padding-top:10%;
+	padding-left: 40%;
 }
